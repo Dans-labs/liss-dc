@@ -88,7 +88,7 @@ def get_pid(dom):
 
 
 def convert_dc_to_dv_json(dc_root):
-    dc_tags = ['title', 'creator', 'description', 'publisher', 'date', 'identifier', 'rights']
+    # dc_tags = ['title', 'creator', 'description', 'publisher', 'date', 'identifier', 'rights']
     fields = list()
     """get pid"""
     protocol, authority, local_id, is_doi = get_pid(dc_root)
@@ -315,6 +315,6 @@ def main(doi_only=True):
 
 if __name__ == '__main__':
     # import all top level studies
-    main()
+    # main(False)
     # import top level studies with doi
-    # main(True)
+    main(True)
