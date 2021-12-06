@@ -281,7 +281,12 @@ def main(doi_only=True):
                 xml_root = dom.getroot()
                 dc_root = xml_root.xpath('./xmlns:metadata', namespaces=ns)
                 title_root = xml_root.xpath('./xmlns:metadata', namespaces=ns)
-                title_root = title_root[0].getchildren()
+                try:
+                    title_root = title_root[0].getchildren()
+                except IndexError as ex:
+                    print(ex)
+                    continue
+
                 titles = title_root[0].xpath('./dc:title', namespaces=ns)
                 title = titles[0].text
 
